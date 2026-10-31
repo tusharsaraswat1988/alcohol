@@ -1,0 +1,125 @@
+import { User, Address, Order } from '../types';
+import { PRODUCTS } from './products';
+
+export const INITIAL_ADDRESSES: Address[] = [
+  {
+    id: 'addr-1',
+    fullName: 'Arjun Sharma',
+    mobile: '+91 98765 43210',
+    flatNumber: 'Flat 402, Prestige Palms',
+    street: '12th Main, 4th Cross, Indiranagar',
+    landmark: 'Near Toit Brewpub',
+    city: 'Bengaluru',
+    state: 'Karnataka',
+    pincode: '560038',
+    addressType: 'Home',
+    isDefault: true,
+  },
+  {
+    id: 'addr-2',
+    fullName: 'Arjun Sharma',
+    mobile: '+91 98765 43210',
+    flatNumber: 'Tower B, 6th Floor',
+    street: 'Embassy GolfLinks Business Park, Domlur',
+    landmark: 'Behind Dell Global Campus',
+    city: 'Bengaluru',
+    state: 'Karnataka',
+    pincode: '560071',
+    addressType: 'Work',
+    isDefault: false,
+  },
+];
+
+export const INITIAL_USER: User = {
+  id: 'usr-vip-901',
+  name: 'Arjun Sharma',
+  mobile: '+91 98765 43210',
+  email: 'arjun.sharma@example.com',
+  isAgeVerified: true,
+  verifiedAt: '2026-01-15T10:00:00Z',
+  wishlistIds: ['jw-blue-label', 'don-julio-1942', 'moet-imperial-brut'],
+};
+
+export const INITIAL_ORDERS: Order[] = [
+  {
+    id: 'POUR-892104',
+    date: '28 Oct 2026, 08:45 PM',
+    items: [
+      {
+        cartItemId: 'jw-black-label_750 ML',
+        productId: 'jw-black-label',
+        product: PRODUCTS[0],
+        selectedSize: '750 ML',
+        price: 3450,
+        volumeMl: 750,
+        quantity: 1,
+      },
+      {
+        cartItemId: 'bombay-sapphire-gin_750 ML',
+        productId: 'bombay-sapphire-gin',
+        product: PRODUCTS[18],
+        selectedSize: '750 ML',
+        price: 2600,
+        volumeMl: 750,
+        quantity: 1,
+      },
+    ],
+    subtotal: 6050,
+    tax: 302, // 5% excise
+    deliveryFee: 0,
+    packagingFee: 49,
+    discount: 300,
+    total: 6101,
+    address: INITIAL_ADDRESSES[0],
+    deliverySlot: 'Express Delivery (Delivered in 24 mins)',
+    paymentMethod: 'UPI',
+    status: 'Delivered',
+    estimatedDelivery: 'Delivered on Oct 28, 9:10 PM',
+    timeline: [
+      { status: 'Confirmed', timestamp: '8:45 PM', completed: true, description: 'Order confirmed and verified' },
+      { status: 'Packing', timestamp: '8:48 PM', completed: true, description: 'Packed with temperature seal at Indiranagar Vault' },
+      { status: 'Agent Assigned', timestamp: '8:52 PM', completed: true, description: 'Delivery partner Suresh K. assigned' },
+      { status: 'Out for Delivery', timestamp: '8:56 PM', completed: true, description: 'On the way via EV Express' },
+      { status: 'Delivered', timestamp: '9:10 PM', completed: true, description: 'Handed over with 21+ OTP verification' },
+    ],
+  },
+  {
+    id: 'POUR-763412',
+    date: '14 Oct 2026, 07:15 PM',
+    items: [
+      {
+        cartItemId: 'bira-white-wheat_6-Pack (330 ML x 6)',
+        productId: 'bira-white-wheat',
+        product: PRODUCTS[26] || PRODUCTS[0],
+        selectedSize: '6-Pack (330 ML x 6)',
+        price: 890,
+        volumeMl: 1980,
+        quantity: 2,
+      },
+      {
+        cartItemId: 'corona-extra-beer_6-Pack (330 ML x 6)',
+        productId: 'corona-extra-beer',
+        product: PRODUCTS[24] || PRODUCTS[0],
+        selectedSize: '6-Pack (330 ML x 6)',
+        price: 1190,
+        volumeMl: 1980,
+        quantity: 1,
+      },
+    ],
+    subtotal: 2970,
+    tax: 148,
+    deliveryFee: 40,
+    packagingFee: 49,
+    discount: 150,
+    total: 3057,
+    address: INITIAL_ADDRESSES[0],
+    deliverySlot: 'Evening Delivery (7:30 PM - 8:30 PM)',
+    paymentMethod: 'Card',
+    status: 'Delivered',
+    estimatedDelivery: 'Delivered on Oct 14, 8:05 PM',
+    timeline: [
+      { status: 'Confirmed', timestamp: '7:15 PM', completed: true, description: 'Order verified' },
+      { status: 'Delivered', timestamp: '8:05 PM', completed: true, description: 'Delivered safely' },
+    ],
+  },
+];

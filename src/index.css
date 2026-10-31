@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-gold-50: #FCF9F0;
+    --color-gold-100: #F7F0DC;
+    --color-gold-200: #EDDEB5;
+    --color-gold-300: #E3CA8E;
+    --color-gold-400: #D8B564;
+    --color-gold-500: #D4AF37;
+    --color-gold-600: #B89228;
+    --color-gold-700: #93731E;
+    --color-gold-800: #6F5417;
+    --color-gold-900: #4B3710;
+  }
+
+  body {
+    background-color: #0c0d12;
+    color: #1a1a24;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #12131a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2d3d;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Glassmorphism helpers */
+.glass-dark {
+  background: rgba(18, 19, 26, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+/* Glow effects */
+.gold-glow {
+  box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.35);
+}
+
+.gold-glow-sm {
+  box-shadow: 0 0 15px -3px rgba(212, 175, 55, 0.25);
+}
+
+/* Print styles for simulated invoice */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt, #printable-receipt * {
+    visibility: visible;
+  }
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
